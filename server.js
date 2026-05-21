@@ -4,7 +4,7 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
-const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1505741685097889873/hyTfx_8hh6IZmJjIE9LXeJSBEFAmU7GCtszbg-V0rUMzxJ_sWqaZOoOJt0qzeAnSQrfh";
+const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1506848831109730364/-ZPYGqrO8XmR29S-a3ihc1RgyLf-R2tKHSOFlFXTKzBw3p2HokN6mnQUh16ohxKmvIXQ";
 
 app.post("/webhook", async (req, res) => {
     try {
