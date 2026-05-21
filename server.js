@@ -10,16 +10,18 @@ app.post("/webhook", async (req, res) => {
     try {
         const original = req.body;
 
-        await axios.post(DISCORD_WEBHOOK, {
-            content: "@everyone " + (original.content || "New event!"),
+        const payload = {
+            ...original,
+            content: "@everyone " + (original.content || ""),
             allowed_mentions: {
                 parse: ["everyone"]
             }
-        });
+        };
 
+        await axios.post(DISCORD_WEBHOOK, payload);
         res.sendStatus(200);
     } catch (err) {
-        console.error(err);
+        console.error(err.response?.data || err.message);
         res.sendStatus(500);
     }
 });
